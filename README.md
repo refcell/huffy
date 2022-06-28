@@ -5,48 +5,36 @@
 > Foundry x Huff Integration Tooling
 
 
-## What is a Huff?
+## Getting Started
 
-Huff is a low-level programming language designed for developing highly optimized smart contracts that run on the Ethereum Virtual Machine (EVM). Huff does not hide the inner workings of the EVM. Instead, Huff exposes its programming stack to the developer for manual manipulation.
+Huff is a low-level EVM programming language designed for developing highly optimized smart contracts.
 
-Rather than having functions, Huff has macros - individual blocks of bytecode that can be rigorously tested and evaluated using the Huff runtime testing suite.
+To learn more about Huff, visit the [Huff Website](https://huff.sh/) or [_read the docs_](https://docs.huff.sh/).
 
-[Huff](https://github.com/AztecProtocol/huff) was originally developed by the Aztec Protocol team to write [Weierstrudel](https://github.com/aztecprotocol/weierstrudel). Weierstrudel is an on-chain elliptical curve arithmetic library that requires incredibly optimized code that neither [Solidity](https://docs.soliditylang.org/en/v0.8.14/) nor [Yul](https://docs.soliditylang.org/en/v0.8.9/yul.html) could provide.
-
-While EVM experts can use Huff to write highly-efficient smart contracts for use in production, it can also serve as a way for beginners to learn more about the EVM.
-
-To dive deeper into [Huff](https://github.com/huff-language), visit the [Official Huff Docs](https://huff.sh)(also available on [github](https://github.com/huff-language/huff-docs)).
-
-
-## Installation
-
-_Something not working? Send a message in [discord](https://discord.huff.sh)._
-
-First run the command below to get `huffup`, the Huff installer:
+If you don't already have `huffc` installed, run:
 
 ```bash
 curl -L get.huff.sh | bash
+huffup
 ```
 
-Then, simply run `huffup`, and `huffc` will be installed!
 
-To avoid redirecting the script directly into bash, download and run the [huffup installation script](https://raw.githubusercontent.com/huff-language/huff-rs/main/huffup/install).
+## Building, Testing, and Deploying
 
-**Alternatively**
+This repository provides scaffolding for integrating [Foundry](https://github.com/foundry-rs) into your [Huff](https://huff.sh/) project.
 
-Install from source by running:
+First, install foundry dependencies with `forge install && forge update`.
 
-```bash
-git clone https://raw.githubusercontent.com/huff-language/huff-rs
-cd huff-rs
-cargo install --path ./huff_cli --bins --locked --force
-```
+Then, you can run `forge test` to test the example `.huff` contract in the `src/` directory.
 
-OR
+As with any `.huff` contract, you can compile each contract directly by using `huffc` (the Huff compiler). For example, to compile `src/SimpleStorage.huff`, run: `huffc -b src/SimpleStorage.huff`.
 
-```bash
-cargo install --git https://raw.githubusercontent.com/huff-language/huff-rs --locked huff_cli
-```
+
+// TODO: Scripting
+
+// TODO: Anvil
+
+// TODO: Deployment
 
 
 ## Acknowledgements
